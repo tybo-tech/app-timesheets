@@ -1,0 +1,38 @@
+@import '../../../assets/styles/color';
+
+.material-icons{
+    font-size: .9em;
+    top: .2em;
+}
+
+.headers_{
+    display: grid;
+    grid-template-columns: repeat(6,16.5%) !important;
+    background: $cloud;
+
+    .item{
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: left;
+        padding: .5em;
+    }
+}
+
+.tbody_{
+    padding: 1em 0 !important;
+    border-bottom: 1px solid $cloud;
+    background: $white;
+
+    .item{
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+}
+
+.welcome{
+    background: rgb(226, 222, 214);
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1em;
+    border-radius: .2em;
+}

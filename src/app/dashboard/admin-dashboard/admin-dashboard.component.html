@@ -1,0 +1,28 @@
+<div class="main" *ngIf="user && user.Company">
+  <div class="user">
+    <h4>
+      Hi {{user.Name}}
+      <span (click)="goto('private/company-profile')">
+        Welcome to {{user.Company?.Name}} time management
+      </span>
+      <span class="role">
+        You are loged in as an {{user.UserType}}.
+      </span>
+      <span class="role" (click)="logout()" style="color: red;">
+        <br>
+        Logout
+      </span>
+    </h4>
+
+  </div>
+
+  <app-list-requests></app-list-requests>
+
+
+</div>
+
+
+
+
+
+<app-add-user></app-add-user>

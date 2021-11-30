@@ -1,0 +1,107 @@
+<div class="section">
+
+  <h1 class="main-heading">
+    {{heading}}<span> Form.</span>
+  </h1>
+  <p>
+    To request a <b>{{requestId}}</b> from Tayi healthcare, please fill
+    out this form and press <b>request a <b>{{requestId}}</b></b> button.
+    <br> <br>
+    Please fill all the fields with * to complete your inquiry.
+  </p>
+
+  <div class="form" *ngIf="project">
+    <span *ngIf="step == 1">
+      <div class="form-item">
+        <label for="name">Enter Organization / Approver Email *</label>
+        <input type="email" [(ngModel)]="project.ApproverEmail" placeholder="">
+      </div>
+
+      <button class="primary" [disabled]="!project.ApproverEmail" type="button" (click)="step=2">
+        Next
+      </button>
+
+      <button class="secondary" type="button" (click)="back()">
+        Back
+      </button>
+    </span>
+
+    <span *ngIf="step == 2">
+
+      <div class="form-item">
+        <label for="name">Organization Name *</label>
+        <input type="text" [(ngModel)]="project.OrganizationName" placeholder="">
+      </div>
+
+
+
+
+      <div class="form-item">
+        <label for="name">Notes/ Details *</label>
+        <textarea [(ngModel)]="project.ProjectName" placeholder=""></textarea>
+      </div>
+
+      <div class="form-item">
+        <label for="name">From date*</label>
+        <input type="date" [(ngModel)]="project.StartDate" placeholder="">
+      </div>
+
+      <div class="form-item">
+        <label for="name">End date *</label>
+        <input type="date" [(ngModel)]="project.FinishDate" placeholder="">
+      </div>
+
+      <div class="form-item">
+        <label for="name">Nurses Needed *</label>
+        <input type="number" [(ngModel)]="project.NursesNeeded" placeholder="">
+      </div>
+
+      <div class="form-item">
+        <label for="name">Careres Needed *</label>
+        <input type="number" [(ngModel)]="project.CareNeeded" placeholder="">
+      </div>
+
+
+
+      <div class="form-item">
+
+
+        <button class="primary" [disabled]="!project.OrganizationName" type="button" (click)="saveProject()">
+          request a {{requestId}}
+        </button>
+
+        <button class="secondary" type="button" (click)="step=1">
+          Back
+        </button>
+
+        <span *ngIf="!project.ProjectName" class="error">
+
+          Please fill all the fields with * to complete your request. <br>
+      
+        </span>
+      </div>
+    </span>
+
+
+
+
+  </div>
+
+</div>
+
+
+<div class="modal" *ngIf="sent">
+  <div class="body">
+    <h1>
+      Thank you.
+    </h1>
+    <p>
+      Your request was submitted successfully please check your email for the next step.
+    </p>
+
+
+    <button class="secondary" type="button" (click)="back()">
+      Ok
+    </button>
+  </div>
+</div>

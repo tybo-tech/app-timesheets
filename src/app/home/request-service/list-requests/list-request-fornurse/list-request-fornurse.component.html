@@ -1,0 +1,87 @@
+<div class="section">
+
+  <div class="user">
+    <h4>
+      Hi {{user.Name}}
+      <span>
+        Welcome to {{user.Company?.Name}} time management
+      </span>
+      <span class="role">
+        You are loged in as a {{user.UserType}}.
+      </span>
+      <span class="role" (click)="logout()" style="color: red;">
+        <br>
+        Logout
+      </span>
+    </h4>
+  </div>
+
+  <h1 class="main-heading">
+    Tayiheathcare time <span> Slots </span>
+  </h1>
+
+  <div class="form-item items">
+    <input type="text" [(ngModel)]="search" placeholder="search here...">
+  </div>
+
+  <div class="items">
+    <div *ngFor="let week of projects | searchByName:search" class="item">
+      <div class="item">
+        <span class="material-icons">
+          business
+        </span>
+        <b>{{week.OrganizationName}}</b>
+
+        <span class="span">
+
+          <span class="material-icons">
+            alternate_email
+          </span>
+          {{week.ApproverEmail}}
+        </span>
+        <span class="span">
+          <span class="material-icons">
+            date_range
+          </span> {{week.StartDate | date:'fullDate'}} - {{week.FinishDate | date:'fullDate'}}
+        </span>
+
+        <span class="span">
+
+          <span class="material-icons">
+            done
+          </span>
+          {{week.Status}}
+        </span>
+
+        <span class="span">
+
+          <span class="material-icons">
+            face
+          </span>
+          {{week.NursesNeeded}} Nurses , {{week.CareNeeded}} Careres Needed.
+        </span>
+        <span class="span">
+
+          <span class="material-icons">
+            description
+          </span>
+          {{week.ProjectName}}
+        </span>
+
+        <span class="span">
+
+          <span class="material-icons">
+            account_circle
+          </span>
+          {{week.Members }}  <i>  Joined Members</i>
+        </span>
+        <br>
+        <hr>
+
+        <button (click)="join(week)" *ngIf="!userJoined(week)" class="primary">Join</button>
+        <button (click)="gototime(week)" *ngIf="userJoined(week)" class="primary">Go to timesheet</button>
+
+      </div>
+    </div>
+  </div>
+</div>

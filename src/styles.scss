@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,531;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,531;1,600;1,700;1,800;1,900&family=Metal+Mania&display=swap');
+@import './assets/styles/color';
+@import './assets/styles/main';
+@import './assets/styles/button';
+@import './assets/styles/form';
+@import './assets/styles/grid';
+@import './assets/styles/keyframes';
+@import './assets/styles/modal';
+@import './assets/styles/account';
+@import './assets/styles/users';
+@import './assets/styles/top-bar';
+@import './assets/styles/profile';
+@import './assets/styles/table';
+@import './assets/styles/super-list';
+@import './assets/styles/list-view';
+@import './assets/styles/order-crete-view';
+@import './assets/styles/data-view-main';
+
+
+* {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  // background: $white;
+  background: $cloud;
+}
+
+body {
+  margin: 0;
+  font-family: 'Jost' !important;
+  font-size: 17px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+
+}
+
+p {
+  font-size: 15px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 13px;
+  }
+}
+
+button {
+  font-size: 13px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 11px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  // background: $white;
+  background: $cloud;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: $cloud;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 8px;
+  background-color: transparent;
+
+  @media only screen and (max-width: 600px) {
+    height: 0;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: $pop;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.pac-container {
+  z-index: 10000 !important;
+}
+
+
+
+
+
+.main {
+  padding: 4em 1em;
+
+  .top {
+    display: grid;
+    grid-template-columns: 40% auto;
+    padding: .6em 0;
+    border-bottom: 1px solid $cloud;
+    width: 100%;
+    position: fixed;
+    background: $white;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    h2 {
+      padding: .6em 2em;
+      text-transform: uppercase;
+      color: $black;
+      top: .2em;
+      letter-spacing: 3px;
+    }
+
+    .col {
+      img {
+        width: 5em;
+      }
+
+      &:last-child {
+        text-align: right;
+        color: $pop;
+        font-weight: 500;
+      }
+    }
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+
+  .my-time {
+    padding: 1em 0;
+
+    .day {
+      display: grid;
+      grid-template-columns: 40% 30% auto;
+      padding: .6em 0;
+      border-bottom: 1px solid $cloud;
+      background: $white;
+      padding: 1em;
+
+      .item {
+        font-weight: 400;
+
+        &:last-child {
+          text-align: right;
+          color: $pop;
+          font-weight: 500;
+        }
+
+        span {
+          display: block;
+          font-weight: 500;
+        }
+      }
+
+      .break {
+        text-align: center;
+        color: $primary;
+        font-weight: 400;
+      }
+    }
+
+    .col2 {
+      grid-template-columns: 40% auto;
+
+    }
+  }
+}
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+$box-shadow: 0 1px 2px rgba(93, 93, 93, 0.048),
+0 3px 6px rgba(0, 0, 0, 0.23);
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  background: #ecf0f1;
+
+  .main-container {
+    max-width: 86em;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    // background-repeat: no-repeat;
+    background-size: auto;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: rgb(255, 255, 255);
+    box-shadow: $box-shadow;
+    border: 1px solid rgb(221, 221, 221);
+    padding: 0;
+
+  }
+}
+
+
+
+.main-heading {
+  width: 60%;
+  margin: 1em auto;
+  text-align: center;
+
+  @media only screen and (max-width: 600px) {
+
+    width: 90%;
+    font-size: 1.4em;
+  }
+}
+
+.section {
+  background: #fff;
+  padding: 2.5em 1em;
+  margin: 0;
+  color: rgb(42, 42, 42);
+  margin: 1em 0;
+
+  @media only screen and (max-width: 600px) {
+
+    padding: .5em;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+
+    span {
+      font-weight: 900;
+    }
+  }
+
+  p {
+    width: 90%;
+    margin: 1em auto;
+    text-align: center;
+  }
+
+
+  .skin-types {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    padding: 1em;
+    grid-gap: 1em;
+    margin: .5em auto;
+    box-sizing: border-box;
+    position: relative;
+    left: -1em;
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+      grid-template-columns: repeat(1, 100%);
+      left: 0em;
+      padding: .35em;
+    }
+
+    .service {
+      background: #fff;
+      box-shadow: $box-shadow;
+      padding: 1em;
+      text-align: center;
+      width: 100%;
+
+      h4 {
+        font-size: 1.5em;
+        text-transform: capitalize;
+        padding: 1em;
+        padding-bottom: .2em;
+        border-bottom: 3px solid #827443;
+        width: fit-content;
+        margin: 0 auto;
+      }
+
+      .image {
+        width: 100%;
+        max-height: 22em;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      span {
+        display: block;
+      }
+
+      p {
+        padding: .5em;
+      }
+    }
+  }
+
+}
+
+p {
+  padding: 1em 15em;
+
+  @media only screen and (max-width: 600px) {
+
+    padding: 1em;
+  }
+}
+
+
+
+.form {
+  max-width: 40em;
+  margin: 2em auto;
+}
+
+input,
+textarea {
+  padding: 1em;
+  margin-bottom: 2em;
+  // border: 3px solid black;
+  width: 100%;
+  border: none;
+  background: $cloud;
+}
+
+textarea {
+  height: 10em;
+}
+
+.box-shadow {
+  box-shadow: $box-shadow;
+  margin: 2.55em auto !important;
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0.856);
+  z-index: 100000;
+  top: 0;
+  left: 0;
+
+  .body {
+    max-width: 20em;
+    margin: 7em auto;
+    background: #fff;
+    padding: 1em;
+    text-align: center;
+
+    p {
+      font-weight: 600;
+      padding: 1em;
+    }
+
+    button {
+      margin: 1em 0;
+      padding: 1em;
+      background: #827443;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+
+
+}
+
+button {
+  margin: 1em 0;
+  padding: 1em;
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border: 3px solid #000;
+  width: 100%;
+
+  &:disabled {
+    opacity: .4;
+    cursor: no-drop;
+  }
+
+}
+
+.primary {
+  background: #827443;
+  color: #000;
+  border: none;
+}
+
+.error {
+  display: block;
+  padding: 1em;
+  margin: 1em 0;
+  background: rgba(255, 0, 0, 0.096);
+  color: #000;
+  text-align: center;
+  max-width: 50em;
+  margin: 0 auto;
+}
+
+
+.user,
+.current-project {
+  background: $cloud;
+  padding: 1em;
+  border-radius: .2em;
+  margin: 1em auto;
+  max-width: $mid-width;
+
+  h4,
+  h2 {
+    span {
+      display: block;
+      font-weight: 300;
+    }
+
+    h4{
+      font-size: 5em;
+    }
+
+    .role {
+      font-weight: 500;
+      color: $primary;
+    }
+
+    .change {
+      background: $pop;
+      color: $white;
+      margin: .7em 0;
+      padding: .2em;
+      width: 5em;
+      text-align: center;
+      border-radius: .2em;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+
+  h2 {
+    border-bottom: 1px solid $darker-grey;
+
+    span {
+      font-size: .75em;
+    }
+
+  }
+}
+
+
+@keyframes moveInLeft {
+  0% {
+    transform: translateX(-250px);
+  }
+
+
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes menuSlide {
+  0% {
+    height: 0;
+  }
+
+
+
+  100% {
+    height: 100%;
+  }
+}
+
+
+@keyframes moveInRight {
+  0% {
+    transform: translateX(250px);
+    opacity: 0;
+  }
+
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: #ecf0f1;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 8px;
+  background-color: transparent;
+
+  @media only screen and (max-width: 600px) {
+    height: 0;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: #000000;
+  box-shadow: none;
+  cursor: pointer;
+}

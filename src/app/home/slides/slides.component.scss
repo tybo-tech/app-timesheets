@@ -1,0 +1,25 @@
+@import '../../../assets/styles/color';
+.slides{
+    padding: 1em 0;
+    display: grid;
+    grid-template-columns: 50% auto;
+    background: $primary;
+    .slide{
+        text-align: center;
+        overflow: hidden;
+        height: 20em;
+
+        @media only screen and (max-width: 600px) {
+            height: 12em;
+
+          }
+        border: 1em solid $primary;
+        img{
+            width: 100%;
+        }
+    }
+
+    p{
+       color:$white;
+    }
+}

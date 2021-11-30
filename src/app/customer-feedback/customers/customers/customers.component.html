@@ -1,0 +1,30 @@
+<div class="section">
+
+  <h1 class="main-heading">
+    nurses <span> /Carer List </span>
+  </h1>
+
+  <button class="primary" (click)="add()">Add new nurse / Carer </button>
+
+  <div class="items" *ngIf="users">
+    <div *ngFor="let item of users" class="item">
+      <div class="item">
+        <span class="material-icons">
+          person
+        </span>
+        <b>{{item.Name}}</b>
+        <span class="span">
+          {{item.UserType}}
+        </span>
+        <span class="span">
+          {{item.Email}}
+        </span>
+        <span class="span">
+          {{item.PhoneNumber}}
+        </span>
+
+
+      </div>
+    </div>
+  </div>
+</div>

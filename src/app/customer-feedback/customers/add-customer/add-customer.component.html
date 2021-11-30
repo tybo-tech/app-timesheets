@@ -1,0 +1,71 @@
+
+<div class="data-view-main section" *ngIf="users">
+  <h1 class="main-heading">
+    {{heading}}
+  </h1>
+  <div class="basic">
+    <h3 class="header-label heading">
+     {{customerName}}
+    </h3>
+
+    <div class="dash-forms">
+
+      <div class="upload-preview">
+        <div class="upload">
+          <input type="file" accept="image/png, image/jpeg" #file placeholder="Choose file" multiple
+            (change)="uploadFile(file.files)" style="display:none;">
+          <span class="material-icons  user-dp" *ngIf="!customer.Dp" (click)="file.click()">
+            add_a_photo
+          </span>
+        </div>
+        <div class="preview" (click)="file.click()">
+          <img *ngIf="customer.Dp" [src]="customer.Dp" alt="">
+        </div>
+      </div>
+
+
+      <div class="form-item">
+        <label for="name">Nurse/carer Full Name *</label>
+        <input type="text" [(ngModel)]="customer.Name" placeholder="e.g. John Smith">
+      </div>
+    
+      <div class="form-item">
+        <label for="name">User Type *</label>
+        <select name="" id=""  [(ngModel)]="customer.UserType" >
+          <option value="Nurse">Nurse</option>
+          <option value="Carer">Carer</option>
+        </select>
+      </div>
+    
+   
+    
+      <div class="form-item">
+        <label for="name">Nurse/carer Email 
+
+          <!-- (Once saved cannot be change) -->
+        </label>
+        <input type="text" [(ngModel)]="customer.Email" 
+          placeholder="e.g. john.mnisi@gmail.com">
+      </div>
+    
+      <div class="form-item">
+        <label for="name">Phone Number</label>
+        <input type="text" [(ngModel)]="customer.PhoneNumber" placeholder="e.g. 084 001 0100">
+      </div>
+
+    
+    
+    
+    
+    
+      <button mat-button class="more" type="button" [disabled]="!customer.Name" type="button" (click)="save()">
+        Save nurse/carer
+      </button>
+      <!-- <button mat-button class="more secondary-btn" *ngIf="showGotoCustomer" type="button" type="button"
+        (click)="view(existingCustomer)">
+        Go to customer
+      </button> -->
+    </div>
+  </div>
+</div>
+

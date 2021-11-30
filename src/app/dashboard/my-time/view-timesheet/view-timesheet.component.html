@@ -1,0 +1,67 @@
+<div class="main" *ngIf="project">
+  <div class="top">
+    <div class="col">
+      <img src="../../../assets/images/common/logo.png" alt="">
+      <!-- <img [src]="user.Company.Dp" alt=""> -->
+    </div>
+    <div class="col">
+      <h2>
+        time sheet
+      </h2>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="current-project">
+    <h4>
+      <!-- Timesheet for week: {{weekId}} -->
+    </h4>
+    <br><br>
+
+    <div class="my-time">
+      <div class="day" *ngFor="let week of project.Timesheets">
+        <div class="item">
+          {{week.TimesheetDay}}
+        </div>
+        <div class="item break">
+          {{week.BreakTime}} hrs break
+        </div>
+
+        <div class="item" *ngIf="week.TotalTime != '0'">
+          {{week.TotalTime}} hrs
+        </div>
+        <div class="item" *ngIf="week.TotalTime == '0'">
+          <span style="color: red;">---</span>
+        </div>
+      </div>
+    </div>
+
+    <h4>
+      Week total time : {{totalTime}} hrs
+    </h4>
+    <h4>
+      Week total Break: {{totalBreak}} hrs
+    </h4>
+    <h4>
+      Status: <i style="color: rgb(143, 98, 0);">{{overAllStatus}}</i>
+    </h4>
+
+    <div class="actions">
+      <button class="primary" *ngIf="overAllStatus == 'Sent for approval'" (click)="approve()">Approve
+        timesheet</button>
+      <br><br>
+      <div class="notes" *ngIf="showNotes">
+        <label for="">Enter notes / reasons</label>
+        <textarea name="" id="" cols="30" rows="10" [(ngModel)]="reasons"></textarea>
+        <button class="primary" *ngIf="overAllStatus == 'Sent for approval' && showNotes" style="background: rgb(143, 44, 44);"
+        (click)="decline()">Confirm Decline</button>
+      </div>
+      <button class="primary" *ngIf="overAllStatus == 'Sent for approval' && !showNotes" style="background: rgb(143, 44, 44);"
+        (click)="notes()">Decline timesheet</button>
+      <div class="link" (click)="print()">Print timesheet</div>
+    </div>
+  </div>
+</div>

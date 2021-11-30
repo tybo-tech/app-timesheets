@@ -1,0 +1,77 @@
+<div class="section">
+
+  <h1 class="main-heading">
+    current nurses/Carer <span> Slots </span>
+  </h1>
+
+  <button class="primary" (click)="add()">Add new slot</button>
+  <div class="form-item items">
+    <input type="text" [(ngModel)]="search" placeholder="search here...">
+  </div>
+
+  <div class="items">
+    <div *ngFor="let week of projects | searchByName:search" class="item">
+      <div class="item">
+        <span class="material-icons">
+          business
+        </span>
+        <b>{{week.OrganizationName}}</b>
+
+        <span class="span">
+
+          <span class="material-icons">
+            alternate_email
+          </span>
+          {{week.ApproverEmail}}
+        </span>
+        <span class="span">
+          <span class="material-icons">
+            date_range
+          </span> {{week.StartDate | date:'fullDate'}} - {{week.FinishDate | date:'fullDate'}}
+        </span>
+
+        <span class="span">
+
+          <span class="material-icons">
+            done
+          </span>
+          {{week.Status}}
+        </span>
+
+        <span class="span">
+
+          <span class="material-icons">
+            face
+          </span>
+          {{week.NursesNeeded}} Nurses , {{week.CareNeeded}} Careres Needed.
+        </span>
+        <span class="span">
+
+          <span class="material-icons">
+            description
+          </span>
+          {{week.ProjectName}}
+        </span>
+<!-- 
+        <span class="span">
+
+          <span class="material-icons">
+            account_circle
+          </span>
+          {{week.Members }} <i> Joined Members</i>
+        </span> -->
+
+        <span class="span"  *ngFor="let timesheet of week.Timesheets">
+          <hr>
+          <span class="material-icons" style="color: rgb(113, 206, 20);">
+            schedule 
+          </span>
+            {{timesheet.Name}} <b> {{timesheet.TotalTime}} Work & {{timesheet.BreakTime}} Break</b>
+            <a (click)="print(timesheet)"> View details</a>
+
+        </span>
+
+      </div>
+    </div>
+  </div>
+</div>

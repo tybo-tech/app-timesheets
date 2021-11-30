@@ -1,0 +1,113 @@
+<div class="main" *ngIf="user && user.Company">
+  <div class="top">
+    <div class="col">
+      <img src="../../../assets/images/common/logo.png" alt="" (click)="goto('private/company-profile')">
+    </div>
+    <div class="col">
+      <h2>
+        time sheet
+      </h2>
+    </div>
+  </div>
+
+
+
+  <div class="current-project" *ngIf="project">
+    <button class="primary" (click)="back()">Back</button>
+    <h2 class="welcome">
+      Your time at {{project.OrganizationName}}
+      <span>
+        Starting day: <b>{{project.StartDate | date:'fullDate'}} </b>
+      </span>
+      <span>
+        Ending day: <b>{{project.FinishDate | date:'fullDate'}} </b>
+      </span>
+    </h2>
+
+    <div class="my-time">
+      <div class="headers_">
+        <div class="item">Date </div>
+        <div class="item">Day </div>
+        <div class="item">Start </div>
+        <div class="item">Finish </div>
+        <div class="item">Breaks </div>
+        <div class="item">Total Hours </div>
+      </div>
+
+      <div class="headers_  tbody_" *ngFor="let week of project.Timesheets" (click)="timesheet = week">
+        <div class="item">{{week.TimesheetDate | date:'mediumDate'}} </div>
+        <div class="item"> {{week.TimesheetDay}} </div>
+        <div class="item"> {{week.StartTime || '----'}} </div>
+        <div class="item"> {{week.FinishTime || '----'}} </div>
+        <div class="item"> {{week.BreakTime}} hr(s) </div>
+        <div class="item"> {{week.TotalTime}} hr(s)</div>
+      </div>
+      <!-- <div class="day" *ngFor="let week of weekDaysTimeSheet" (click)="timesheet = week">
+        <div class="item">
+          {{week.TimesheetDay}}
+          <span></span>
+        </div>
+        <div class="item break">
+          {{week.BreakTime}} hrs break
+        </div>
+
+        <div class="item" *ngIf="week.TotalTime != '0'">
+          {{week.TotalTime}} hrs
+          <span>{{week.StartTime}}-{{week.FinishTime}}</span>
+        </div>
+        <div class="item" *ngIf="week.TotalTime == '0'">
+          <span style="color: red;">---</span>
+        </div>
+      </div> -->
+    </div>
+
+    <h4>
+      Week total time : {{totalTime}} hrs
+    </h4>
+    <h4>
+      Week total Break: {{totalBreak}} hrs
+    </h4>
+    <h4>
+      Status: <i style="color: rgb(143, 98, 0);">{{overAllStatus}}</i>
+      <span *ngIf="reason">Reason: {{reason}}</span>
+    </h4>
+
+    <div class="actions">
+      <button class="primary" *ngIf="overAllStatus == 'Not sent for approval'" (click)="send()">Send for weekly
+        approval</button>
+      <div class="link" (click)="print()">Print timesheet</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="quick-add" *ngIf="timesheet">
+  <div class="form">
+    <h3>
+      {{timesheet.TimesheetDay}}
+    </h3>
+    <!-- 
+    <div class="form-item">
+      <label for="">Time worked on {{timesheet.TimesheetDay}} (<b>Hours</b>)</label>
+      <input type="number" [(ngModel)]="timesheet.TotalTime">
+    </div> -->
+    <div class="form-item">
+      <label for="">Start time</label>
+      <input type="time" [(ngModel)]="timesheet.StartTime">
+    </div>
+    <div class="form-item">
+      <label for="">Finish {{timesheet.FinishTime}} </label>
+      <input type="time" [(ngModel)]="timesheet.FinishTime">
+    </div>
+    <div class="form-item">
+      <label for="">Total breaks (<b>Hours</b>)</label>
+      <input type="number" [(ngModel)]="timesheet.BreakTime">
+    </div>
+
+    <div class="form-item">
+      <button class="primary" (click)="saveTime()">Save time</button>
+
+      <div class="link" (click)="timesheet =  null">Cancel</div>
+    </div>

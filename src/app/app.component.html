@@ -1,0 +1,140 @@
+<div class="main-container">
+  <!-- <div class="top-banner">
+    <div class="col">
+    <a href="https://wa.me/27829703889">  Chat on Whatsapp</a>
+    </div>
+    <div class="col" (click)="checkout()">
+      <span class="material-icons">
+        shopping_cart
+      </span>
+
+      Cart ({{order?.Products.length}})</div>
+  </div> -->
+  <div class="nav">
+    <div class="logo col">
+      <a routerLink="/">
+        <img src="assets/images/logo2.png" alt="">
+      </a>
+    </div>
+
+    <div class="nav-items">
+      <ul *ngIf="!user || user.UserType != ADMIN">
+        <li>
+          <a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+            <span class="material-icons">
+              home
+            </span>
+            Home
+          </a>
+        </li>
+        <li>
+          <a routerLink="home/about" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+            <span class="material-icons">
+              info
+            </span>
+            About Us
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="home/sign-in" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+            <span class="material-icons">
+              user
+            </span>
+            Login
+          </a>
+        </li>
+
+      </ul>
+
+
+      <ul *ngIf="user && user.UserType == ADMIN">
+        <li>
+          <a routerLink="/private/admin-dashboard" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact: true}">
+            <span class="material-icons">
+              home
+            </span>
+            My Dashboard
+          </a>
+        </li>
+        <li>
+          <a routerLink="/private/nurses" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+            <span class="material-icons">
+              people_outline
+            </span>
+            My Nurses/Carer
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="private-link/list-request" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+            <span class="material-icons">
+              user
+            </span>
+            Time Slots/Requests
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+  <router-outlet></router-outlet>
+
+  <footer>
+  </footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="pop" *ngIf="message">
+  <p>
+    {{message}}
+  </p>
+  <div class="">
+    <span class="material-icons" (click)="message = ''">
+      close
+    </span>
+  </div>
+</div>
+
+
+
+<div class="overlay" *ngIf="loadingUx && loadingUx.Loading">
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+    <h3 *ngIf="loadingUx.Message">
+      {{loadingUx.Message}}
+    </h3>
+  </div>
+</div>
+
+
+
+
+
+<div class="modal" *ngIf="message">
+  <div class="body">
+
+    <p>
+      {{message}}
+    </p>
+
+
+    <button class="secondary" type="button" (click)="message = null">
+      Ok
+    </button>
+  </div>
+</div>
